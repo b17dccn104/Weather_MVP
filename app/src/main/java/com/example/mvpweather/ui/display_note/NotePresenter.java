@@ -2,13 +2,13 @@ package com.example.mvpweather.ui.display_note;
 
 import android.content.Context;
 
-import com.example.mvpweather.data.SQLiteQuyenGopOpenHelper;
+import com.example.mvpweather.data.SQLiteNoteOpenHelper;
 import com.example.mvpweather.model.weather_note.Note;
 
 import java.util.List;
 
 public class NotePresenter {
-    private SQLiteQuyenGopOpenHelper db;
+    private SQLiteNoteOpenHelper db;
     private NoteInterface noteInterface;
     private Context context;
 
@@ -18,7 +18,7 @@ public class NotePresenter {
     }
 
     public void getListNote(Note note) {
-        db = new SQLiteQuyenGopOpenHelper(context);
+        db = new SQLiteNoteOpenHelper(context);
         db.addNote(note);
         List<Note> notes = db.getAllNote();
         if (notes != null){

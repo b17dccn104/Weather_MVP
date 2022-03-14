@@ -5,19 +5,16 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.example.mvpweather.model.weather_note.Note;
-import com.example.mvpweather.data.SQLiteQuyenGopOpenHelper;
+import com.example.mvpweather.data.SQLiteNoteOpenHelper;
 import com.example.mvpweather.databinding.FragmentNoteBinding;
 import com.example.mvpweather.model.weather_7days.Lists;
 import com.example.mvpweather.ui.adapter.RecycleViewNoteAdapter;
@@ -27,7 +24,7 @@ import java.util.List;
 public class NoteFragment extends Fragment implements NoteInterface{
     private FragmentNoteBinding binding;
     private RecycleViewNoteAdapter adapter;
-    private SQLiteQuyenGopOpenHelper sqLiteQuyenGopOpenHelper;
+    private SQLiteNoteOpenHelper sqLiteQuyenGopOpenHelper;
     private NotePresenter notePresenter;
     private View view;
 
@@ -36,7 +33,7 @@ public class NoteFragment extends Fragment implements NoteInterface{
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        sqLiteQuyenGopOpenHelper = new SQLiteQuyenGopOpenHelper(getActivity());
+        sqLiteQuyenGopOpenHelper = new SQLiteNoteOpenHelper(getActivity());
         notePresenter = new NotePresenter(this, getActivity());
     }
 

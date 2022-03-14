@@ -1,24 +1,18 @@
 package com.example.mvpweather.ui.adapter;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.mvpweather.R;
-import com.example.mvpweather.data.SQLiteQuyenGopOpenHelper;
+import com.example.mvpweather.data.SQLiteNoteOpenHelper;
 import com.example.mvpweather.databinding.ItemWeatherNoteBinding;
-import com.example.mvpweather.model.weather_7days.Lists;
 import com.example.mvpweather.model.weather_note.Note;
 import com.example.mvpweather.ui.display_note.NoteFragment;
 import com.example.mvpweather.utils.KeyTemF;
@@ -32,7 +26,7 @@ public class RecycleViewNoteAdapter extends RecyclerView.Adapter<RecycleViewNote
     private Context context;
     private List<Note> notes;
     private NoteFragment noteFragment;
-    private SQLiteQuyenGopOpenHelper db;
+    private SQLiteNoteOpenHelper db;
     private DecimalFormat df = new DecimalFormat("#");
 
     public RecycleViewNoteAdapter(Context context, List<Note> notes) {
@@ -44,7 +38,7 @@ public class RecycleViewNoteAdapter extends RecyclerView.Adapter<RecycleViewNote
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_weather_note,parent,false);
-        db = new SQLiteQuyenGopOpenHelper(context);
+        db = new SQLiteNoteOpenHelper(context);
         noteFragment = new NoteFragment();
         return new MyViewHolder(view);
     }

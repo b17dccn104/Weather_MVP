@@ -13,11 +13,11 @@ import com.example.mvpweather.model.weather_note.Note;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SQLiteQuyenGopOpenHelper extends SQLiteOpenHelper {
+public class SQLiteNoteOpenHelper extends SQLiteOpenHelper {
     private  static  final String DATABASE_NAME = "Lists.db";
     private static  final int DATABASE_VERSION = 1;
 
-    public SQLiteQuyenGopOpenHelper(@Nullable Context context) {
+    public SQLiteNoteOpenHelper(@Nullable Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
